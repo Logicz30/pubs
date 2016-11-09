@@ -18,3 +18,13 @@ GO
 CREATE NONCLUSTERED INDEX [aunmind]
     ON [dbo].[authors]([au_lname] ASC, [au_fname] ASC);
 
+
+GO
+
+CREATE TRIGGER [dbo].[Trigger_authors]
+    ON [dbo].[authors]
+    FOR DELETE, INSERT, UPDATE
+    AS
+    BEGIN
+        SET NoCount ON
+    END
