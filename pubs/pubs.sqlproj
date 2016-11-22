@@ -118,6 +118,7 @@
     <Folder Include="Scripts" />
     <Folder Include="gen" />
     <Folder Include="gen\Stored Procedures" />
+    <Folder Include="utility" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\authors.sql" />
@@ -141,6 +142,9 @@
     <Build Include="gen\Stored Procedures\GenerateMultipleProcs.sql">
       <DependentUpon>gen\Stored Procedures\GenerateMultipleProcs.tt</DependentUpon>
     </Build>
+    <Build Include="utility\data_model.sql">
+      <DependentUpon>utility\data_model.tt</DependentUpon>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="__publish\local.publish.xml" />
@@ -151,6 +155,12 @@
     </None>
     <None Include="gen\Stored Procedures\GenerateMultipleProcs.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="utility\data_model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="utility\data_model.txt">
+      <DependentUpon>utility\data_model.tt</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

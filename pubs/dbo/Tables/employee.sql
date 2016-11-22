@@ -52,3 +52,75 @@ AS
 		16, 1, @job_id, @min_lvl, @max_lvl)
 		ROLLBACK TRANSACTION
 	END
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Employee ID',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'emp_id'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Employee forename',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'fname'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Middle initial',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'minit'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Employee Surname',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'lname'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Reference to the employee job',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'job_id'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Job level ',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'job_lvl'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Reference to the publisher the employee works for',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'pub_id'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Date the employee was hired',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'employee',
+    @level2type = N'COLUMN',
+    @level2name = N'hire_date'

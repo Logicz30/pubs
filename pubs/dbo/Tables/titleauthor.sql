@@ -18,3 +18,40 @@ GO
 CREATE NONCLUSTERED INDEX [titleidind]
     ON [dbo].[titleauthor]([title_id] ASC);
 
+
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Author ID',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'titleauthor',
+    @level2type = N'COLUMN',
+    @level2name = N'au_id'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Title ID',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'titleauthor',
+    @level2type = N'COLUMN',
+    @level2name = N'title_id'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Position of the author in the list of authors',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'titleauthor',
+    @level2type = N'COLUMN',
+    @level2name = N'au_ord'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Royalty percentage for the author on the publication',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'titleauthor',
+    @level2type = N'COLUMN',
+    @level2name = N'royaltyper'

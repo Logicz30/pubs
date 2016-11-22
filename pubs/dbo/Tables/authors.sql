@@ -28,3 +28,84 @@ CREATE TRIGGER [dbo].[Trigger_authors]
     BEGIN
         SET NoCount ON
     END
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Author ID',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'au_id'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Author surname',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'au_lname'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Author forename',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'au_fname'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Telephone number including dialing code',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'phone'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'First line of address ',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'address'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'City or town ',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'city'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'County or state',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'state'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Postcode or zipccode',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'zip'
+GO
+EXEC sp_addextendedproperty @name = N'MS_Description',
+    @value = N'Flag indicating whether the author is "in contract"',
+    @level0type = N'SCHEMA',
+    @level0name = N'dbo',
+    @level1type = N'TABLE',
+    @level1name = N'authors',
+    @level2type = N'COLUMN',
+    @level2name = N'contract'
