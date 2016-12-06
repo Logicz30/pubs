@@ -1,0 +1,186 @@
+digraph G { 
+	//  
+	// Defaults
+	//  
+ 
+	// Box for entities
+	node [shape=none, margin=0]
+ 
+	// One-to-many relation (from one, to many)
+	edge [arrowhead=crow, arrowtail=none, dir=both]
+
+dbo_authors [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.authors</td></tr>
+		<tr><td align="left">au_id:varchar(PK)</td></tr>
+		<tr><td align="left">au_lname:varchar</td></tr>
+		<tr><td align="left">au_fname:varchar</td></tr>
+		<tr><td align="left">phone:char</td></tr>
+		<tr><td align="left">address:varchar</td></tr>
+		<tr><td align="left">city:varchar</td></tr>
+		<tr><td align="left">state:char</td></tr>
+		<tr><td align="left">zip:char</td></tr>
+		<tr><td align="left">contract:bit</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_discounts [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.discounts</td></tr>
+		<tr><td align="left">discounttype:varchar</td></tr>
+		<tr><td align="left">stor_id:char(FK)</td></tr>
+		<tr><td align="left">lowqty:smallint</td></tr>
+		<tr><td align="left">highqty:smallint</td></tr>
+		<tr><td align="left">discount:decimal</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_employee [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.employee</td></tr>
+		<tr><td align="left">emp_id:char(PK)</td></tr>
+		<tr><td align="left">fname:varchar</td></tr>
+		<tr><td align="left">minit:char</td></tr>
+		<tr><td align="left">lname:varchar</td></tr>
+		<tr><td align="left">job_id:smallint(FK)</td></tr>
+		<tr><td align="left">job_lvl:tinyint</td></tr>
+		<tr><td align="left">pub_id:char(FK)</td></tr>
+		<tr><td align="left">hire_date:datetime</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_jobs [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.jobs</td></tr>
+		<tr><td align="left">job_id:smallint(PK)</td></tr>
+		<tr><td align="left">job_desc:varchar</td></tr>
+		<tr><td align="left">min_lvl:tinyint</td></tr>
+		<tr><td align="left">max_lvl:tinyint</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_pub_info [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.pub_info</td></tr>
+		<tr><td align="left">pub_id:char(PK)(FK)</td></tr>
+		<tr><td align="left">logo:image</td></tr>
+		<tr><td align="left">pr_info:text</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_publishers [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.publishers</td></tr>
+		<tr><td align="left">pub_id:char(PK)</td></tr>
+		<tr><td align="left">pub_name:varchar</td></tr>
+		<tr><td align="left">city:varchar</td></tr>
+		<tr><td align="left">state:char</td></tr>
+		<tr><td align="left">country:varchar</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_regions [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.regions</td></tr>
+		<tr><td align="left">Id:int(PK)</td></tr>
+		<tr><td align="left">RegionName:varchar</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_roysched [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.roysched</td></tr>
+		<tr><td align="left">title_id:varchar(FK)</td></tr>
+		<tr><td align="left">lorange:int</td></tr>
+		<tr><td align="left">hirange:int</td></tr>
+		<tr><td align="left">royalty:int</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_sales [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.sales</td></tr>
+		<tr><td align="left">stor_id:char(PK)(FK)</td></tr>
+		<tr><td align="left">ord_num:varchar(PK)</td></tr>
+		<tr><td align="left">ord_date:datetime</td></tr>
+		<tr><td align="left">qty:smallint</td></tr>
+		<tr><td align="left">payterms:varchar</td></tr>
+		<tr><td align="left">title_id:varchar(PK)(FK)</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_stores [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.stores</td></tr>
+		<tr><td align="left">stor_id:char(PK)</td></tr>
+		<tr><td align="left">stor_name:varchar</td></tr>
+		<tr><td align="left">stor_address:varchar</td></tr>
+		<tr><td align="left">city:varchar</td></tr>
+		<tr><td align="left">state:char</td></tr>
+		<tr><td align="left">zip:char</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_titleauthor [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.titleauthor</td></tr>
+		<tr><td align="left">au_id:varchar(PK)(FK)</td></tr>
+		<tr><td align="left">title_id:varchar(PK)(FK)</td></tr>
+		<tr><td align="left">au_ord:tinyint</td></tr>
+		<tr><td align="left">royaltyper:int</td></tr>
+	</table>
+>]
+
+
+
+
+dbo_titles [label=<
+	<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+		<tr><td bgcolor="lightblue">dbo.titles</td></tr>
+		<tr><td align="left">title_id:varchar(PK)</td></tr>
+		<tr><td align="left">title:varchar</td></tr>
+		<tr><td align="left">type:char</td></tr>
+		<tr><td align="left">pub_id:char(FK)</td></tr>
+		<tr><td align="left">price:money</td></tr>
+		<tr><td align="left">advance:money</td></tr>
+		<tr><td align="left">royalty:int</td></tr>
+		<tr><td align="left">ytd_sales:int</td></tr>
+		<tr><td align="left">notes:varchar</td></tr>
+		<tr><td align="left">pubdate:datetime</td></tr>
+	</table>
+>]
+
+
+
+dbo_stores->dbo_discounts;dbo_jobs->dbo_employee;dbo_publishers->dbo_employee;dbo_publishers->dbo_pub_info;dbo_titles->dbo_roysched;dbo_stores->dbo_sales;dbo_titles->dbo_sales;dbo_authors->dbo_titleauthor;dbo_titles->dbo_titleauthor;dbo_publishers->dbo_titles;
+}

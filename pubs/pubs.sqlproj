@@ -142,9 +142,6 @@
     <Build Include="gen\Stored Procedures\GenerateMultipleProcs.sql">
       <DependentUpon>gen\Stored Procedures\GenerateMultipleProcs.tt</DependentUpon>
     </Build>
-    <Build Include="utility\data_model.sql">
-      <DependentUpon>utility\data_model.tt</DependentUpon>
-    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="__publish\local.publish.xml" />
@@ -162,8 +159,21 @@
     <None Include="utility\data_model.txt">
       <DependentUpon>utility\data_model.tt</DependentUpon>
     </None>
+    <None Include="utility\Graphviz.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="sqldbdoc.exe" />
+    <None Include="utility\Graphviz.txt">
+      <DependentUpon>utility\Graphviz.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)Utility\Graphviz.txt $(ProjectDir)$(OutputPath)
+dot $(ProjectDir)$(OutputPath)Graphviz.txt -Tpng &gt; Graphviz.png
+$(SolutionDir)sqldbdoc "SERVER=(Localdb)\ProjectsV13;TRUSTED_CONNECTION=yes;DATABASE=pubs_1" $(ProjectDir)$(OutputPath)pubs_docs.htm /y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

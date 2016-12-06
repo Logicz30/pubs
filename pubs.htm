@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>pubs_1 Database Schema</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <style type="text/css">
+                    body { background-color: #fff; color: #000; font-family: Consolas, monospace}
+                    a:link { color: #03d; }
+                    a:visited { color: #039; }
+                    a:hover { color: #09f; }
+                    table { border-collapse: collapse; width: 100%; }
+                    table caption { color: #666; text-align: right; font-size: 65%; margin-bottom: .5ex; }
+                    table td, table th { border: solid 1px #666; border-collapse: collapse; padding: .3ex .5ex; vertical-align: top; }
+                    table tbody tr:hover { background-color: #ffc; }
+                    table thead th { text-align: left; background-color: #ccc; }
+                    table tbody th { text-align: left; white-space: nowrap; }
+                    .table { page-break-inside: avoid; }
+                    .pk { float: right; cursor: arrow; color: #999; }
+                    .type { white-space: nowrap; }
+                    .null { text-align: center; }
+                    .flag { white-space: nowrap; font-size: 70%; display: inline-block; border: solid 1px #ccc; padding: .25ex .5ex; background-color: #ddd; margin-right: 1ex; }
+                    .tocref { float: right; text-decoration: none; font-weight: normal; }
+                    .footer { text-align: center; margin-top: 1em; font-size: 80%;}
+                    li.view:before { content: "VIEW"; font-size: 70%; display: inline-block; border: solid 1px #ccc; padding: .25ex .5ex; background-color: #ddd; margin-right: 1ex; }
+                    @media print {
+                    body { font-size: .8em; }
+                    #toc, .tocref { display: none; }
+                    a:link, a:visited { color: #000; text-decoration: none; }
+                    }
+                </style>
+  </head>
+  <body>
+    <h1>pubs_1 Database Schema</h1>
+    <div id="toc">
+      <ul>
+        <li class="table"><a href="#565577053">dbo.authors</a></li>
+        <li class="table"><a href="#597577167">dbo.discounts</a></li>
+        <li class="table"><a href="#613577224">dbo.employee</a></li>
+        <li class="table"><a href="#645577338">dbo.jobs</a></li>
+        <li class="table"><a href="#677577452">dbo.pub_info</a></li>
+        <li class="table"><a href="#709577566">dbo.publishers</a></li>
+        <li class="table"><a href="#741577680">dbo.regions</a></li>
+        <li class="table"><a href="#773577794">dbo.roysched</a></li>
+        <li class="table"><a href="#789577851">dbo.sales</a></li>
+        <li class="table"><a href="#821577965">dbo.stores</a></li>
+        <li class="table"><a href="#853578079">dbo.titleauthor</a></li>
+        <li class="table"><a href="#885578193">dbo.titles</a></li>
+        <li class="view"><a href="#1365579903">dbo.titleview</a></li>
+      </ul>
+    </div>
+    <div class="table">
+      <h2 id="565577053"><a href="#toc" class="tocref">⇧</a>Table dbo.authors</h2>
+      <table>
+        <caption>Table ID: 565577053; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_auidind">◆</span>au_id</th>
+            <td class="type">varchar (11)</td>
+            <td class="null">☐</td>
+            <td>Author ID</td>
+          </tr>
+          <tr>
+            <th>au_lname</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☐</td>
+            <td>Author surname</td>
+          </tr>
+          <tr>
+            <th>au_fname</th>
+            <td class="type">varchar (20)</td>
+            <td class="null">☐</td>
+            <td>Author forename</td>
+          </tr>
+          <tr>
+            <th>phone</th>
+            <td class="type">char (12)</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT ('UNKNOWN')</span>Telephone number including dialing code</td>
+          </tr>
+          <tr>
+            <th>address</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☒</td>
+            <td>First line of address </td>
+          </tr>
+          <tr>
+            <th>city</th>
+            <td class="type">varchar (20)</td>
+            <td class="null">☒</td>
+            <td>City or town </td>
+          </tr>
+          <tr>
+            <th>state</th>
+            <td class="type">char (2)</td>
+            <td class="null">☒</td>
+            <td>County or state</td>
+          </tr>
+          <tr>
+            <th>zip</th>
+            <td class="type">char (5)</td>
+            <td class="null">☒</td>
+            <td>Postcode or zipccode</td>
+          </tr>
+          <tr>
+            <th>contract</th>
+            <td class="type">bit</td>
+            <td class="null">☐</td>
+            <td>Flag indicating whether the author is "in contract"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="597577167"><a href="#toc" class="tocref">⇧</a>Table dbo.discounts</h2>
+      <table>
+        <caption>Table ID: 597577167; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>discounttype</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☐</td>
+            <td>Type of discount</td>
+          </tr>
+          <tr>
+            <th>stor_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK__discounts__stor___403A8C7D">⇨ <a href="#821577965">dbo.stores</a>.stor_id</span>Store ID that the discount applies to</td>
+          </tr>
+          <tr>
+            <th>lowqty</th>
+            <td class="type">smallint</td>
+            <td class="null">☒</td>
+            <td>Minimum quantity required for discount to apply</td>
+          </tr>
+          <tr>
+            <th>highqty</th>
+            <td class="type">smallint</td>
+            <td class="null">☒</td>
+            <td>Maximum quantity for discount to apply</td>
+          </tr>
+          <tr>
+            <th>discount</th>
+            <td class="type">decimal (4, 2)</td>
+            <td class="null">☐</td>
+            <td>Discount percentage</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="613577224"><a href="#toc" class="tocref">⇧</a>Table dbo.employee</h2>
+      <table>
+        <caption>Table ID: 613577224; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_emp_id">◆</span>emp_id</th>
+            <td class="type">char (9)</td>
+            <td class="null">☐</td>
+            <td>Employee ID</td>
+          </tr>
+          <tr>
+            <th>fname</th>
+            <td class="type">varchar (20)</td>
+            <td class="null">☐</td>
+            <td>Employee forename</td>
+          </tr>
+          <tr>
+            <th>minit</th>
+            <td class="type">char (1)</td>
+            <td class="null">☒</td>
+            <td>Middle initial</td>
+          </tr>
+          <tr>
+            <th>lname</th>
+            <td class="type">varchar (30)</td>
+            <td class="null">☐</td>
+            <td>Employee Surname</td>
+          </tr>
+          <tr>
+            <th>job_id</th>
+            <td class="type">smallint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT ((1))</span><span class="flag" title="FK__employee__job_id__412EB0B6">⇨ <a href="#645577338">dbo.jobs</a>.job_id</span>Reference to the employee job</td>
+          </tr>
+          <tr>
+            <th>job_lvl</th>
+            <td class="type">tinyint</td>
+            <td class="null">☒</td>
+            <td><span class="flag">DEFAULT ((10))</span>Job level </td>
+          </tr>
+          <tr>
+            <th>pub_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT ('9952')</span><span class="flag" title="FK__employee__pub_id__4222D4EF">⇨ <a href="#709577566">dbo.publishers</a>.pub_id</span>Reference to the publisher the employee works for</td>
+          </tr>
+          <tr>
+            <th>hire_date</th>
+            <td class="type">datetime</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT (getdate())</span>Date the employee was hired</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="645577338"><a href="#toc" class="tocref">⇧</a>Table dbo.jobs</h2>
+      <table>
+        <caption>Table ID: 645577338; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK__jobs__6E32B6A539E61FEE">◆</span>job_id</th>
+            <td class="type">smallint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span>Job ID</td>
+          </tr>
+          <tr>
+            <th>job_desc</th>
+            <td class="type">varchar (50)</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT ('New Position - title not formalized yet')</span>Description of the job</td>
+          </tr>
+          <tr>
+            <th>min_lvl</th>
+            <td class="type">tinyint</td>
+            <td class="null">☐</td>
+            <td>Minimum level required to to do the job</td>
+          </tr>
+          <tr>
+            <th>max_lvl</th>
+            <td class="type">tinyint</td>
+            <td class="null">☐</td>
+            <td>Maximum level required to to do the job</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="677577452"><a href="#toc" class="tocref">⇧</a>Table dbo.pub_info</h2>
+      <table>
+        <caption>Table ID: 677577452; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_pubinfo">◆</span>pub_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK__pub_info__pub_id__4316F928">⇨ <a href="#709577566">dbo.publishers</a>.pub_id</span>Publisher ID</td>
+          </tr>
+          <tr>
+            <th>logo</th>
+            <td class="type">image</td>
+            <td class="null">☒</td>
+            <td>Binary data representing a jpeg image of the Publisher's logo</td>
+          </tr>
+          <tr>
+            <th>pr_info</th>
+            <td class="type">text</td>
+            <td class="null">☒</td>
+            <td>Information regarding the publisher</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="709577566"><a href="#toc" class="tocref">⇧</a>Table dbo.publishers</h2>
+      <table>
+        <caption>Table ID: 709577566; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_pubind">◆</span>pub_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☐</td>
+            <td>Publisher ID</td>
+          </tr>
+          <tr>
+            <th>pub_name</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☒</td>
+            <td>Name of the publisher</td>
+          </tr>
+          <tr>
+            <th>city</th>
+            <td class="type">varchar (20)</td>
+            <td class="null">☒</td>
+            <td>Town or city in which the publisher is located</td>
+          </tr>
+          <tr>
+            <th>state</th>
+            <td class="type">char (2)</td>
+            <td class="null">☒</td>
+            <td>State in which the publisher is located</td>
+          </tr>
+          <tr>
+            <th>country</th>
+            <td class="type">varchar (30)</td>
+            <td class="null">☒</td>
+            <td><span class="flag">DEFAULT ('USA')</span>Country in which the publisher is located</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="741577680"><a href="#toc" class="tocref">⇧</a>Table dbo.regions</h2>
+      <table>
+        <caption>Table ID: 741577680; Created: December 05, 2016, 23:13:40</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_Region">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td>Region ID</td>
+          </tr>
+          <tr>
+            <th>RegionName</th>
+            <td class="type">varchar (25)</td>
+            <td class="null">☒</td>
+            <td>Region Name</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="773577794"><a href="#toc" class="tocref">⇧</a>Table dbo.roysched</h2>
+      <table>
+        <caption>Table ID: 773577794; Created: December 05, 2016, 23:13:40; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>title_id</th>
+            <td class="type">varchar (6)</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK__roysched__title___440B1D61">⇨ <a href="#885578193">dbo.titles</a>.title_id</span>Book Title ID</td>
+          </tr>
+          <tr>
+            <th>lorange</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>Lower range </td>
+          </tr>
+          <tr>
+            <th>hirange</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>Upper range</td>
+          </tr>
+          <tr>
+            <th>royalty</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>royalty amount</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="789577851"><a href="#toc" class="tocref">⇧</a>Table dbo.sales</h2>
+      <table>
+        <caption>Table ID: 789577851; Created: December 05, 2016, 23:13:41; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_sales">◆</span>stor_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK__sales__stor_id__44FF419A">⇨ <a href="#821577965">dbo.stores</a>.stor_id</span>Store ID</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_sales">◆</span>ord_num</th>
+            <td class="type">varchar (20)</td>
+            <td class="null">☐</td>
+            <td>Order Identifier</td>
+          </tr>
+          <tr>
+            <th>ord_date</th>
+            <td class="type">datetime</td>
+            <td class="null">☐</td>
+            <td>Date of the Order</td>
+          </tr>
+          <tr>
+            <th>qty</th>
+            <td class="type">smallint</td>
+            <td class="null">☐</td>
+            <td>Quantity ordered</td>
+          </tr>
+          <tr>
+            <th>payterms</th>
+            <td class="type">varchar (12)</td>
+            <td class="null">☐</td>
+            <td>Payment Terms</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_sales">◆</span>title_id</th>
+            <td class="type">varchar (6)</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK__sales__title_id__45F365D3">⇨ <a href="#885578193">dbo.titles</a>.title_id</span>Title of the publication ordered</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="821577965"><a href="#toc" class="tocref">⇧</a>Table dbo.stores</h2>
+      <table>
+        <caption>Table ID: 821577965; Created: December 05, 2016, 23:13:41; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPK_storeid">◆</span>stor_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☐</td>
+            <td>Store ID</td>
+          </tr>
+          <tr>
+            <th>stor_name</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☒</td>
+            <td>Name of the store</td>
+          </tr>
+          <tr>
+            <th>stor_address</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☒</td>
+            <td>Address of the store</td>
+          </tr>
+          <tr>
+            <th>city</th>
+            <td class="type">varchar (20)</td>
+            <td class="null">☒</td>
+            <td>City in which the store is located</td>
+          </tr>
+          <tr>
+            <th>state</th>
+            <td class="type">char (2)</td>
+            <td class="null">☒</td>
+            <td>State in which the store is located</td>
+          </tr>
+          <tr>
+            <th>zip</th>
+            <td class="type">char (5)</td>
+            <td class="null">☒</td>
+            <td>Zip or postal code of the store</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="853578079"><a href="#toc" class="tocref">⇧</a>Table dbo.titleauthor</h2>
+      <table>
+        <caption>Table ID: 853578079; Created: December 05, 2016, 23:13:41; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_taind">◆</span>au_id</th>
+            <td class="type">varchar (11)</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK__titleauth__au_id__46E78A0C">⇨ <a href="#565577053">dbo.authors</a>.au_id</span>Author ID</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_taind">◆</span>title_id</th>
+            <td class="type">varchar (6)</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK__titleauth__title__47DBAE45">⇨ <a href="#885578193">dbo.titles</a>.title_id</span>Title ID</td>
+          </tr>
+          <tr>
+            <th>au_ord</th>
+            <td class="type">tinyint</td>
+            <td class="null">☒</td>
+            <td>Position of the author in the list of authors</td>
+          </tr>
+          <tr>
+            <th>royaltyper</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>Royalty percentage for the author on the publication</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="885578193"><a href="#toc" class="tocref">⇧</a>Table dbo.titles</h2>
+      <table>
+        <caption>Table ID: 885578193; Created: December 05, 2016, 23:13:41; Modified: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY UPKCL_titleidind">◆</span>title_id</th>
+            <td class="type">varchar (6)</td>
+            <td class="null">☐</td>
+            <td>Title ID</td>
+          </tr>
+          <tr>
+            <th>title</th>
+            <td class="type">varchar (80)</td>
+            <td class="null">☐</td>
+            <td>Name of the publication</td>
+          </tr>
+          <tr>
+            <th>type</th>
+            <td class="type">char (12)</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT ('UNDECIDED')</span>Type of publication</td>
+          </tr>
+          <tr>
+            <th>pub_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK__titles__pub_id__48CFD27E">⇨ <a href="#709577566">dbo.publishers</a>.pub_id</span>Publisher ID</td>
+          </tr>
+          <tr>
+            <th>price</th>
+            <td class="type">money (19, 4)</td>
+            <td class="null">☒</td>
+            <td>Price in pounds sterling</td>
+          </tr>
+          <tr>
+            <th>advance</th>
+            <td class="type">money (19, 4)</td>
+            <td class="null">☒</td>
+            <td>Advance to be paid to the authors</td>
+          </tr>
+          <tr>
+            <th>royalty</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>Royalty payment to the authors</td>
+          </tr>
+          <tr>
+            <th>ytd_sales</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>Year to date sales amount</td>
+          </tr>
+          <tr>
+            <th>notes</th>
+            <td class="type">varchar (200)</td>
+            <td class="null">☒</td>
+            <td>Notes relating to the publcation</td>
+          </tr>
+          <tr>
+            <th>pubdate</th>
+            <td class="type">datetime</td>
+            <td class="null">☐</td>
+            <td><span class="flag">DEFAULT (getdate())</span>Publication date</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="1365579903"><a href="#toc" class="tocref">⇧</a>View dbo.titleview</h2>
+      <table>
+        <caption>Table ID: 1365579903; Created: December 05, 2016, 23:13:41</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>title</th>
+            <td class="type">varchar (80)</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>au_ord</th>
+            <td class="type">tinyint</td>
+            <td class="null">☒</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>au_lname</th>
+            <td class="type">varchar (40)</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>price</th>
+            <td class="type">money (19, 4)</td>
+            <td class="null">☒</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>ytd_sales</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>pub_id</th>
+            <td class="type">char (4)</td>
+            <td class="null">☒</td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+                    Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> on
+                    December 06, 2016, 00:36:26</div>
+  </body>
+</html>
